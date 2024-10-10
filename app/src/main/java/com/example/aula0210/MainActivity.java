@@ -16,8 +16,8 @@ import com.example.aula0210.dao.AlunoDAO;
 import com.example.aula0210.model.Aluno;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnListar, btnNovo, btnAlterar, btnExcluir, btnSalvar, btnConsultar;
-    EditText edtId, edtNome, edtCpf, edtTelefone, edtListar;
+    Button btnNovo, btnAlterar, btnExcluir, btnSalvar, btnConsultar;
+    EditText edtId, edtNome, edtCpf, edtTelefone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +32,15 @@ public class MainActivity extends AppCompatActivity {
         edtId = findViewById(R.id.edtId);
         edtCpf = findViewById(R.id.edtCpf);
         edtTelefone= findViewById(R.id.edtTelefone);
-        edtListar = findViewById(R.id.edtListar);
     }
+
     public void novo (View view){
         edtNome.setText(null);
         edtId.setText(null);
         edtCpf.setText(null);
         edtTelefone.setText(null);
-        edtListar.setText(null);
-
     }
+
     public void salvar (View view){
         Aluno a = new Aluno();
         a.setNome(edtNome.getText().toString());
@@ -60,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         edtCpf.setText(a.getCpf());
         edtTelefone.setText(a.getTelefone());
     }
+
     public void excluir(View view){
         Aluno a = new Aluno();
         a.setId(Integer.parseInt(edtId.getText().toString()));
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Aluno Excluido!",
                 Toast.LENGTH_LONG).show();
     }
+
     public void alterar(View view){
         Aluno a = new Aluno();
         a.setId(Integer.parseInt(edtId.getText().toString()));
